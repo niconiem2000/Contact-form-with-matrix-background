@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birdsnest | Ohjelmistokehitys & Digitaaliset Palvelut</title>
+  <meta name="description" content="Birdsnest on suomalainen ohjelmistokehitysyritys. Ota yhteyttä ja pyydä tarjous mobiili- ja web-kehityksestä." />
+  <meta name="keywords" content="ota yhteyttä ohjelmistokehitys, koodausyritys Suomi, ohjelmistotalo" />
+  <meta name="language" content="fi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <style>
+    :root { --green:#00ff88; --dark:#050807; --card:rgba(10,25,20,0.85);} 
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--dark);color:#e6fff4;overflow-x:hidden}
+    canvas#matrix{position:fixed;inset:0;z-index:-1}
+    header{padding:5rem 1.5rem 3rem;text-align:center}
+    .logo{position:fixed;top:1rem;right:1.25rem;display:flex;align-items:center;gap:.5rem;color:var(--green);font-weight:700;z-index:10}
+    section.services{max-width:1200px;margin:0 auto;padding:3rem 1.5rem 4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+    .service-card{background:var(--card);border:1px solid rgba(0,255,136,.25);border-radius:18px;padding:2rem;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease}
+    .service-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 25px 60px rgba(0,0,0,.7);border-color:rgba(0,255,136,.7)}
+    .cta{text-align:center;padding:3rem}
+    .cta a{background:var(--green);color:#021;font-weight:700;padding:1rem 2.2rem;border-radius:999px;text-decoration:none;position:relative;transition:box-shadow .3s ease, transform .3s ease;animation:pulseGlow 7s ease-in-out infinite}
+    .cta a:hover{transform:translateY(-2px);box-shadow:0 0 15px rgba(0,255,136,.9),0 0 40px rgba(0,255,136,.6)}
+    .cta a:hover{transform:translateY(-2px);box-shadow:0 0 15px rgba(0,255,136,.8),0 0 35px rgba(0,255,136,.5)}
+    @media(max-width:640px){header h1{font-size:2.1rem}.service-card{padding:1.5rem}.contact form{padding:1.5rem}}.service-card{padding:1.5rem}}
+      .contact{max-width:700px;margin:0 auto 5rem;padding:0 1.5rem;text-align:center}
+    .contact h2{color:var(--green);margin-bottom:1.5rem}
+    .contact form{display:flex;flex-direction:column;gap:1rem}
+    .contact input,.contact textarea{background:#020;color:#e6fff4;border:1px solid rgba(0,255,136,.3);border-radius:8px;padding:.8rem}
+    .contact button{background:var(--green);color:#021;border:none;padding:.9rem;border-radius:999px;font-weight:700;cursor:pointer;transition:box-shadow .3s ease, transform .3s ease}
+    .contact button:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(0,255,136,.8),0 0 30px rgba(0,255,136,.5)}
+    .contact .success{color:var(--green);margin-top:1rem;font-weight:600}
+      @keyframes pulseGlow{
+      0%,85%,100%{box-shadow:0 0 0 rgba(0,255,136,0)}
+      90%{box-shadow:0 0 10px rgba(0,255,136,.6),0 0 30px rgba(0,255,136,.4)}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12C7 6 17 6 21 12C17 18 7 18 3 12Z" stroke="#00ff88" stroke-width="1.5"/>
+<path d="M12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12" stroke="#00ff88" stroke-width="1.5"/>
+</svg>
+Birdsnest
+</div>
+
+  <!-- Matrix Background -->
+  <canvas id="matrix"></canvas>
+
+  <header>
+    <h1>Palvelumme</h1>
+    <p>
+      Olemme Birdsnest – suomalainen ohjelmistokehitysyritys.
+      Rakennamme turvallisia, nopeita ja skaalautuvia digitaalisia ratkaisuja
+      yrityksille ja startupeille.
+    </p>
+  </header>
+
+  <section class="services">
+    
+
+    <div class="service-card">
+      <div class="icon">🎨</div>
+      <h3>Web-suunnittelu</h3>
+      <p>
+        Käyttäjäkeskeinen web‑design, joka yhdistää visuaalisuuden,
+        saavutettavuuden ja konversion.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="icon">📱</div>
+      <h3>Mobiilisovelluskehitys</h3>
+      <p>
+        iOS- ja Android-sovellukset React Nativella ja natiiviteknologioilla.
+        Käyttäjäystävällinen design ja korkea suorituskyky.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🔒</div>
+      <h3>Security & Optimization</h3>
+      <p>
+        Code audits, performance tuning, and security hardening to keep your systems
+        fast, stable, and protected.
+      </p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a href="#contact" onclick="trackCTA()">Ota yhteyttä</a>
+  </div>
+
+  <section id="contact" class="contact">
+    <h2>Ota yhteyttä</h2>
+    <form id="contactForm" action="https://formspree.io/f/yourFormID" method="POST" onsubmit="return handleSubmit(event)">
+      <!-- Honeypot -->
+      <input type="text" name="company" tabindex="-1" autocomplete="off" style="display:none" />
+
+      <input type="text" name="name" placeholder="Nimesi" required />
+      <input type="email" name="email" placeholder="Sähköposti" required />
+      <textarea name="message" placeholder="Kerro projektistasi" required></textarea>
+      <button type="submit">Lähetä viesti</button>
+      <p class="success" hidden>Kiitos yhteydenotostasi! Palaamme sinulle pian.</p>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Birdsnest · Ohjelmistokehitys ja koodauspalvelut Suomessa
+  </footer>
+
+  <script>
+    // Matrix effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const letters = '01アイウエオカキクケコサシスセソABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(5, 8, 7, 0.15)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ff88';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 40);
+  </script>
+
+<script>
+  function handleSubmit(e){
+    e.preventDefault();
+    const form=e.target;
+    if(form.company.value){return false;} // honeypot
+
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(()=>{
+        form.querySelector('.success').hidden=false;
+        form.reset();
+        if(window.gtag){gtag('event','form_submit',{event_category:'lead'})}
+      });
+    return false;
+  }
+
+  function trackCTA(){
+    if(window.gtag){gtag('event','cta_click',{event_category:'engagement'})}
+  }
+  function trackFormSubmit(){
+    if(window.gtag){gtag('event','form_submit',{event_category:'lead'})}
+  }
+</script>
+
+</body>
+</html>
